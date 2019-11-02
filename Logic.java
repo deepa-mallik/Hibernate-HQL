@@ -50,9 +50,19 @@ public class Logic {
                 System.out.println("---------------------------");
  
             }      
+            
+/* OR delete from the table */
+            
+            Query qry2 = session.createQuery("delete from Product p where p.productId= ?");
+            qry2.setParameter(0,102);
+            int res = qry2.executeUpdate();
+            
+            System.out.println("command executed successfully...");
+            System.out.println("number of records effected due to delete query "+res);
  
         session.close();
         factory.close();
-    }
+ 
+     }
  
 }
